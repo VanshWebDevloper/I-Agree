@@ -26,11 +26,15 @@
     <p>Fictional story. Gamified Guides to education.</p>
 
     <div>
-      <button>&gt; Educational</button>
-      <button>&gt; Gamified</button>
+      <button>&gt; <a href="desktop.html" onclick="localStorage.setItem('mode', 'educational')">Educational</a></button>
+
+      <button>&gt; <a href="desktop.html" onclick="localStorage.setItem('mode', 'gamified')">Gamified</a></button>
     </div>
   </div>
 
+  <audio id="music" src="sounds/music.mp3"></audio>
+
+  <script src="main.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

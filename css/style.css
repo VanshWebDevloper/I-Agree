@@ -16,6 +16,16 @@ button {
   width: 160px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a :hover{
+  background-color: #808080;
+  border-radius: 5%;
+}
+
 body > div {
   min-height: 100vh;
   display: flex;
