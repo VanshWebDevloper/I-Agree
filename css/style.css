@@ -60,17 +60,19 @@ body > div > div {
   animation: hide 2s ease-in-out 0s infinite;
 }
 
-#intro {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1.5s ease-in-out;
-}
-
-#intro.show {
+#story {
   opacity: 1;
 }
 
 .storyline {
+  position: absolute;
   opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;
+}
+
+#intro {
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 1.5s ease-in-out;
 }
