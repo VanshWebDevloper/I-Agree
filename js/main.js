@@ -1,14 +1,14 @@
-const music = document.querySelector("#music");
 const startButton = document.querySelector("#blink");
 const story = document.querySelector("#story");
 const intro = document.querySelector("#intro");
 const storylines = document.querySelectorAll(".storyline");
+const music = document.querySelector("#music");
 
 startButton.onclick = function() {
-  music.volume = 0.5;
+  music.volume = 0.2;
   music.loop = true;
   music.play();
-  
+
   startButton.style.animation = "none";
   startButton.style.opacity = "0";
 
