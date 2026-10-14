@@ -5,228 +5,285 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+width: 100%;
+min-height: 100vh;
 
-  background: #050505;
+background: #050505;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+display: flex;
+justify-content: center;
+align-items: center;
 
-  overflow: hidden;
+overflow: hidden;
 }
 
 #monitor {
-  width: min(100vw, 820px);
-  aspect-ratio: 720 / 560;
+width: min(94vw, 820px);
+aspect-ratio: 720 / 560;
 
-  background: #353532;
+background: #353532;
 
-  border: clamp(8px, 2vw, 18px) solid #242422;
-  border-radius: clamp(20px, 5vw, 45px);
+border: clamp(8px, 2vw, 18px) solid #242422;
+border-radius: clamp(20px, 5vw, 45px);
 
-  position: relative;
+position: relative;
+flex-shrink: 0;
 
-  box-shadow:
-    0 25px 60px #000,
-    inset 0 0 25px #111;
+box-shadow:
+0 25px 60px #000,
+inset 0 0 25px #111;
 
-  transition:
-    transform 0.35s ease,
-    width 0.35s ease;
+transition:
+transform 0.35s ease,
+width 0.35s ease;
 }
 
 #screen {
-  position: absolute;
+position: absolute;
 
-  left: 7%;
-  top: 7%;
+left: 7%;
+top: 7%;
 
-  width: 82%;
-  height: 70%;
+width: 82%;
+height: 70%;
 
-  background-image: url("../images/wallpaper.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+background-image: url("../images/wallpaper.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 
-  border: clamp(8px, 2vw, 22px) solid #181817;
-  border-radius: clamp(18px, 4vw, 35px);
+border: clamp(8px, 2vw, 22px) solid #181817;
+border-radius: clamp(18px, 4vw, 35px);
 
-  overflow: hidden;
+overflow: hidden;
 
-  z-index: 4;
+z-index: 4;
 }
 
 #screen-content {
-  width: 100%;
-  height: 100%;
+width: 100%;
+height: 100%;
 
-  position: relative;
+position: relative;
 }
 
 .desktop-icon {
-  position: absolute;
+position: absolute;
 
-  top: 5%;
-  left: 4%;
+top: 5%;
+left: 4%;
 
-  width: 70px;
+display: flex;
+flex-direction: column;
+align-items: center;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+gap: 14px;
+}
 
-  cursor: pointer;
+.desktop-icon a {
+width: 70px;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+
+text-decoration: none;
+cursor: pointer;
 }
 
 .desktop-icon img {
-  width: 45px;
-  height: 45px;
+width: 45px;
+height: 45px;
 
-  object-fit: contain;
+object-fit: contain;
 }
 
 .desktop-icon span {
-  margin-top: 5px;
+margin-top: 5px;
 
-  color: white;
+color: white;
 
-  font-family: Arial, sans-serif;
-  font-size: 12px;
+font-family: Arial, sans-serif;
+font-size: 12px;
 
-  text-align: center;
+text-align: center;
 
-  text-shadow: 1px 1px 3px #000;
-}
-
-a {
-  text-decoration: none;
+text-shadow: 1px 1px 3px #000;
 }
 
 #controls {
-  position: absolute;
+position: absolute;
 
-  right: 5%;
-  bottom: 5%;
+right: 5%;
+bottom: 5%;
 
-  display: flex;
+display: flex;
 
-  gap: clamp(5px, 1vw, 10px);
+gap: clamp(5px, 1vw, 10px);
 }
 
 #controls button {
-  width: clamp(9px, 2vw, 16px);
-  aspect-ratio: 1;
+width: clamp(9px, 2vw, 16px);
+aspect-ratio: 1;
 
-  border: none;
-  border-radius: 50%;
+border: none;
+border-radius: 50%;
 
-  background: #151513;
+background: #151513;
 
-  box-shadow:
-    inset 2px 2px 3px #444,
-    inset -2px -2px 3px #000;
+box-shadow:
+inset 2px 2px 3px #444,
+inset -2px -2px 3px #000;
 }
 
 #stand {
-  position: absolute;
+position: absolute;
 
-  width: 17%;
-  height: 12%;
+width: 17%;
+height: 12%;
 
-  left: 50%;
-  bottom: -12%;
+left: 50%;
+bottom: -12%;
 
-  transform: translateX(-50%);
+transform: translateX(-50%);
 
-  background: #292927;
+background: #292927;
 }
 
 #base {
-  position: absolute;
+position: absolute;
 
-  width: 35%;
-  height: 5%;
+width: 35%;
+height: 5%;
 
-  left: 50%;
-  bottom: -17%;
+left: 50%;
+bottom: -17%;
 
-  transform: translateX(-50%);
+transform: translateX(-50%);
 
-  background: #242422;
+background: #242422;
 
-  border-radius: 15px;
+border-radius: 15px;
 }
 
 #fullscreen-btn {
-  position: fixed;
+position: fixed;
 
-  top: 15px;
-  right: 15px;
+top: 15px;
+right: 15px;
 
-  width: clamp(36px, 5vw, 50px);
-  height: clamp(36px, 5vw, 50px);
+width: clamp(36px, 5vw, 50px);
+height: clamp(36px, 5vw, 50px);
 
-  border: 1px solid #444;
-  border-radius: 8px;
+border: 1px solid #444;
+border-radius: 8px;
 
-  background: #151515;
-  color: white;
+background: #151515;
+color: white;
 
-  font-size: clamp(16px, 2vw, 22px);
+font-size: clamp(16px, 2vw, 22px);
 
-  cursor: pointer;
+cursor: pointer;
 
-  z-index: 100;
+z-index: 100;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
-#monitor:has(#screen:hover) {
-  transform: scale(0.94);
+#screen::after {
+content: "";
+
+position: absolute;
+inset: 0;
+
+pointer-events: none;
+
+background: repeating-linear-gradient(
+to bottom,
+transparent 0px,
+transparent 2px,
+rgba(0, 0, 0, 0.12) 3px,
+rgba(0, 0, 0, 0.12) 4px
+);
+
+z-index: 5;
 }
 
 body:fullscreen {
-  background: #050505;
+width: 100%;
+height: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+min-height: 0;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+overflow: hidden;
 }
 
 body:fullscreen #monitor {
-  width: min(96vw, 1200px);
-  max-height: 96vh;
+width: min(96vw, 1200px, calc((96vh - 17vh) * 720 / 560));
 }
 
 @media (max-width: 600px) {
+#monitor {
+width: 94vw;
+}
 
-  #monitor {
-    width: 94vw;
-  }
+#screen {
+left: 6%;
+top: 6%;
 
-  #screen {
-    left: 6%;
-    top: 6%;
+width: 84%;
+height: 69%;
 
-    width: 84%;
-    height: 69%;
-  }
+}
 
-  .desktop-icon {
-    width: 55px;
-  }
+.desktop-icon {
+left: 3%;
 
-  .desktop-icon img {
-    width: 38px;
-    height: 38px;
-  }
+gap: 12px;
 
-  .desktop-icon span {
-    font-size: 10px;
-  }
+}
+
+.desktop-icon a {
+width: 55px;
+}
+
+.desktop-icon img {
+width: 38px;
+height: 38px;
+}
+
+.desktop-icon span {
+font-size: 10px;
+}
+
+#fullscreen-btn {
+top: 10px;
+right: 10px;
+}
+}
+
+@media (max-height: 500px) {
+body {
+overflow: auto;
+}
+
+#monitor {
+width: min(80vw, calc(70vh * 720 / 560));
+}
+
+body:fullscreen #monitor {
+width: min(96vw, calc(96vh * 720 / 560));
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+#monitor {
+transition: none;
+}
 }
