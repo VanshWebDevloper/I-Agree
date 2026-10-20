@@ -96,9 +96,9 @@ Its purpose is to make digital-safety lessons more memorable by putting them ins
 
 - [✓] Opening screen
 - [✓] Story introduction
-- [ ] Educational / Gamified mode selection
-- [ ] Fictional software store
-- [ ] Fake application installation
+- [✓] Educational / Gamified mode selection
+- [✓] Fictional software store
+- [✓] Fake application installation
 - [ ] Terms & conditions scene
 - [ ] Chatbot interaction
 - [ ] Permission events

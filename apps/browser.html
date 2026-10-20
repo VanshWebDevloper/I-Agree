@@ -4,8 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I Agree - Browser</title>
+  <link rel="stylesheet" href="../css/browser.css">
 </head>
 <body>
-  
+  <main class="window">
+    <header class="title-bar">
+      <div class="title">Browser</div>
+      <div class="window-controls">
+        <button>_</button>
+        <button>□</button>
+        <a href="../desktop.html">×</a>
+      </div>
+    </header>
+    <nav class="menu-bar">
+      <span>File</span>
+      <span>Edit</span>
+      <span>View</span>
+      <span>Tools</span>
+      <span>Help</span>
+    </nav>
+    <section class="toolbar">
+      <button class="toolbar-button">← Back</button>
+      <button class="toolbar-button">→ Forward</button>
+      <div class="address">
+        <span>Address:</span>
+        <div class="address-field">softo://browser/home</div>
+      </div>
+      <button class="toolbar-button">Go</button>
+    </section>
+    <section class="homepage">
+      <form class="url-bar">
+        <input name="searchBar" type="text" placeholder="search anything you want">
+        <button type="submit" class="search">-></button>
+      </form>
+      <div class="shortcut-urls">
+        <div class="icon" id="ott">
+          <a href="#">
+            <img src="../images/funTv.jpg"
+            <span>funTv</span></a>
+        </div>
+        <div class="icon" id="report">
+          <a href="#">
+            <img src="../images/cybercrime.jpg">
+            <span>Cybercrime</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
