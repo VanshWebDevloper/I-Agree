@@ -10,16 +10,16 @@ color: #111;
 }
 
 body {
-min-height: 100vh;
-padding: 20px;
-display: flex;
-justify-content: center;
-align-items: center;
-background: #008080;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #008080;
 }
 
 button, input {
-font: inherit;
+  font: inherit;
 }
 
 button {
@@ -65,6 +65,7 @@ font-weight: bold;
 .toolbar-button, .details-button, .install-button {
 padding: 5px 9px;
 background: #c0c0c0;
+  
 border: 2px solid #fff;
 border-right-color: #404040;
 border-bottom-color: #404040;

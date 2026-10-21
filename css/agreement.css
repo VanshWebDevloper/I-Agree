@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font: 12px Tahoma, Verdana,sans-serif;
+  color: #111;
+}
+
+body {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #008080;
+}
+
+button, input{
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: #111;
+}
+
+.window {
+  width: 100%;
+  max-width: 960px;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  background: #c0c0c0;
+  border: 2px solid #fff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  box-shadow: 2px 2px #000;
+}
+
+header {
+  align-self: center;
+}
+
+.agreement {
+  padding: 20px;
+}

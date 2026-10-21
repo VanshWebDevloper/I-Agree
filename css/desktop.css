@@ -22,13 +22,12 @@ body {
   aspect-ratio: 720 / 560;
 
   background: #353532;
-
   border: clamp(8px, 2vw, 18px) solid #242422;
   border-radius: clamp(20px, 5vw, 45px);
 
   position: relative;
   flex-shrink: 0;
-
+  
   box-shadow:
   0 25px 60px #000,
   inset 0 0 25px #111;
