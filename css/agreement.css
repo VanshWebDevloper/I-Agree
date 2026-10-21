@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@
 }
 
 :root {
-  font: 12px Tahoma, Verdana,sans-serif;
+  font: 12px 'IM Fell English';
   color: #111;
 }
 
@@ -40,7 +42,7 @@ button {
   box-shadow: 2px 2px #000;
 }
 
-header {
+h3 {
   align-self: center;
 }
 

@@ -6,7 +6,46 @@
   <title>I Agree - ChatterBot</title>
   <link rel="stylesheet" href="../css/chatterBot.css">
 </head>
+
 <body>
-  !In Development!
+  <main class="window">
+
+    <header class="title-bar">
+      <span>🖥️ SoftO Assistant</span>
+      <button type="button" aria-label="Close">×</button>
+    </header>
+
+    <section class="character">
+      <div class="smiley" id="smiley"></div>
+      <h2>SoftO Assistant</h2>
+      <p>Version 1.0 — Your friendly computer assistant!</p>
+    </section>
+
+    <section class="conversation">
+      <p class="speaker">SoftO Assistant:</p>
+
+      <p id="dialogue">
+        Hello there! 😊 It's nice to meet you!
+      </p>
+    </section>
+
+    <section class="choices">
+      <button type="button" id="choice1">
+        Who created you?
+      </button>
+
+      <button type="button" id="choice2">
+        What can you do?
+      </button>
+    </section>
+
+    <footer>
+      <span>SOFTO CORPORATION</span>
+      <span id="status">SYSTEM READY</span>
+    </footer>
+
+  </main>
+
+  <script src="../js/chatterBot.js"></script>
 </body>
 </html>

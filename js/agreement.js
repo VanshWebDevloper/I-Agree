@@ -9,7 +9,7 @@ agreeButton.addEventListener("click", () => {
     return;
   }
 
-  window.location.href = "chatterBot";
+  window.location.href = "chatterBot.html";
 });
 
 disagreeButton.addEventListener("click", () => {
