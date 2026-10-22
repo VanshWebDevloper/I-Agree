@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background: #c0c0c0;
+  color: #000;
+  font-family: 'IM Fell English';
+  font-size: 13px;
+}
+
+.top-bar {
+  padding: 7px 10px;
+  background: #000080;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.top-bar span {
+  float: right;
+  margin-top: -2px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 5%;
+  background: #d4d0c8;
+  border: 2px outset #fff;
+}
+
+.logo {
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+  border: 2px inset #fff;
+}
+
+.navbar h1 {
+  margin: 0;
+  color: #000080;
+  font-family: Georgia, serif;
+  font-size: 38px;
+}
+
+.navbar p {
+  margin: 5px 0 0;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  background: #000080;
+  border: 2px outset #fff;
+}
+
+.menu a {
+  padding: 12px 16px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-right: 1px solid #777;
+}
+
+.menu a:hover {
+  background: #ffff00;
+  color: #000;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 15px;
+  padding: 18px;
+  max-width: 1250px;
+  margin: auto;
+  align-items: start;
+}
+
+.sidebar,
+.main-content {
+  min-width: 0;
+  background: #d4d0c8;
+  border: 2px outset #fff;
+  padding: 14px;
+}
+
+.sidebar h3 {
+  margin: -14px -14px 14px;
+  padding: 9px;
+  background: #000080;
+  color: white;
+}
+
+.sidebar a {
+  display: block;
+  padding: 9px 4px;
+  color: #000080;
+  border-bottom: 1px dashed #888;
+}
+
+.sidebar a:hover {
+  background: #ffffcc;
+}
+
+.sidebar hr {
+  border: 0;
+  border-top: 1px solid #888;
+  margin: 18px 0;
+}
+
+.small-heading {
+  font-weight: bold;
+  color: #800000;
+}
+
+.counter {
+  margin-top: 22px;
+  padding: 12px 5px;
+  background: #000;
+  color: #00ff00;
+  font-family: monospace;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.counter strong {
+  font-size: 20px;
+}
+
+.welcome {
+  padding: 15px;
+  background: #ffffcc;
+  border: 2px inset #fff;
+}
+
+.welcome h2 {
+  margin-top: 0;
+  color: #800000;
+  font-family: Georgia, serif;
+}
+
+.welcome marquee {
+  margin-top: 10px;
+  color: #000080;
+  font-weight: bold;
+}
+
+.section-title {
+  margin-top: 24px;
+  padding: 10px;
+  background: #000080;
+  color: white;
+  font-size: 15px;
+}
+
+.video-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.video-card {
+  min-width: 0;
+  background: #e8e5de;
+  border: 3px ridge #fff;
+}
+
+.video-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-bottom: 2px inset #fff;
+}
+
+.video-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-details {
+  padding: 12px;
+}
+
+.video-details h3 {
+  margin: 0 0 10px;
+  color: #000080;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.video-details p {
+  line-height: 1.6;
+}
+
+.category {
+  display: inline-block;
+  padding: 4px 6px;
+  background: #ffff00;
+  border: 1px solid #888;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.notice {
+  margin-top: 22px;
+  padding: 10px;
+  border: 1px dashed #777;
+  text-align: center;
+}
+
+footer {
+  padding: 18px 10px;
+  background: #000080;
+  color: white;
+  text-align: center;
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .main-content {
+    order: 1;
+  }
+
+  .video-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1000px) {
+  .video-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -11,7 +11,6 @@ body {
   color: #000;
 }
 
-/* ---------- Window ---------- */
 .window {
   width: min(94vw, 480px);
   background: #c0c0c0;
@@ -45,7 +44,6 @@ body {
   cursor: pointer;
 }
 
-/* ---------- Character ---------- */
 .character {
   text-align: center;
   padding: 14px 10px 6px;
@@ -68,7 +66,6 @@ body {
   color: #404040;
 }
 
-/* ---------- Conversation (CRT box) ---------- */
 .conversation {
   position: relative;
   overflow: hidden;
@@ -116,7 +113,6 @@ body {
   animation: blink 0.7s steps(1) infinite;
 }
 
-/* ---------- Choices ---------- */
 .choices {
   display: flex;
   gap: 10px;
@@ -145,7 +141,6 @@ body {
   cursor: default;
 }
 
-/* ---------- Footer / status bar ---------- */
 footer {
   display: flex;
   justify-content: space-between;
@@ -165,7 +160,6 @@ footer span:last-child {
   text-align: right;
 }
 
-/* ---------- Glitch mode (JS adds .glitch to .window) ---------- */
 .window.glitch .smiley {
   animation: shake 0.15s infinite;
   filter: hue-rotate(150deg) saturate(3) contrast(1.4);
@@ -183,7 +177,6 @@ footer span:last-child {
   animation: blink 0.5s steps(1) infinite;
 }
 
-/* ---------- Animations ---------- */
 @keyframes blink { 50% { opacity: 0; } }
 
 @keyframes flicker {
@@ -191,6 +184,7 @@ footer span:last-child {
   50% { opacity: 0.85; }
   52% { opacity: 1; }
 }
+
 
 @keyframes shake {
   0%   { transform: translate(0, 0); }

@@ -290,7 +290,7 @@ function showNode(key) {
       }, node.delay);
       return;
     }
-
+    
     choice1.textContent = node.choices[0].label;
     choice2.textContent = node.choices[1].label;
     choice1.disabled = false;
