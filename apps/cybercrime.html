@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybercrime Department</title>
+  <link rel="stylesheet" href="../css/cybercrime.css">
+</head>
+<body>
+  <div class="top-bar">CYBERCRIME.EXE <span>[_] [□] <a href="browser.html">[X]</a></span></div>  <header>
+    <h1>Cybercrime Department</h1>
+    <p>Digital Safety & Reporting Portal</p>
+  </header>  <nav>
+    <a href="#home">HOME</a>
+    <a href="#report">REPORT INCIDENT</a>
+    <a href="#jobs">CAREERS</a>
+  </nav>  <main id="home">
+    <section class="box">
+      <h2>Report Cybercrime</h2>
+      <form id="report">
+        <label for="type">Incident Type</label>
+        <select id="type" required>
+          <option value="">Select incident</option>
+          <option>Online Scam</option>
+          <option>Fake Account</option>
+          <option>Cyberbullying</option>
+          <option>Account Hacking</option>
+        </select>    <label for="details">Incident Details</label>
+    <textarea id="details" placeholder="Describe what happened..." required></textarea>
+
+    <label for="proof">Upload Screenshots</label>
+    <input type="file" id="proof" accept="image/*" multiple>
+    <div id="preview"></div>
+
+    <button type="submit">Submit Report</button>
+  </form>
+  <p id="message"></p>
+</section>
+
+<section class="box" id="jobs">
+  <h2>Join Our Department</h2>
+  <form id="job-form">
+    <label for="name">Full Name</label>
+    <input id="name" type="text" placeholder="Your name" required>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Your email" required>
+
+    <label for="role">Choose Role</label>
+    <select id="role" required>
+      <option value="">Select role</option>
+      <option>Security Analyst</option>
+      <option>Web Security Intern</option>
+      <option>Technical Support</option>
+    </select>
+
+    <button type="submit">Apply Now</button>
+  </form>
+  <p id="job-message"></p>
+</section>
+    
+<p class="notice">Demo project only — not an official government website.</p>
+
+  </main>  <footer>CYBERCRIME.EXE © 2003–FOREVER</footer>
+  <script src="../js/cybercrime.js"></script>
+  <script src="../js/reportEnding.js"></script>
+</body>
+</html>

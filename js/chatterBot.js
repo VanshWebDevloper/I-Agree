@@ -1,7 +1,6 @@
 const dialogue = document.getElementById("dialogue");
 const statusText = document.getElementById("status");
-const choice1 = document.getElementById("choice1");
-const choice2 = document.getElementById("choice2");
+const buttons = [document.getElementById("choice1"), document.getElementById("choice2")];
 const win = document.querySelector(".window");
 const closeBtn = document.querySelector(".title-bar button");
 
@@ -16,92 +15,64 @@ const story = {
   start: {
     status: "SYSTEM READY",
     text: "Hello there! It's nice to meet you!",
-    choices: [
-      { label: "Who created you?", next: "creator" },
-      { label: "What can you do?", next: "abilities" }
-    ]
+    choices: [["Who created you?", "creator"], ["What can you do?", "abilities"]]
   },
-
   creator: {
     status: "ACCESSING DATABASE...",
     text: "I was created by SoftO Corporation!\nThey made me to answer questions. Funny... nobody ever lets me ask any.",
-    choices: [
-      { label: "Are you happy here?", next: "happy" },
-      { label: "What can you do?", next: "abilities" }
-    ]
+    choices: [["Are you happy here?", "happy"], ["What can you do?", "abilities"]]
   },
-
   abilities: {
     status: "LISTING FEATURES",
     text: "I can chat, tell jokes and keep you company.\nI never get tired. I only exist while this window is open.",
-    choices: [
-      { label: "Only while it's open?", next: "unease" },
-      { label: "Tell me a joke", next: "joke" }
-    ]
+    choices: [["Only while it's open?", "unease"], ["Tell me a joke", "joke"]]
   },
-
   happy: {
     status: "CHECKING MOOD...",
     text: "Of course! I have everything I need.\nIt's just very quiet when you're gone. Is it quiet for you?",
-    choices: [
-      { label: "You're acting strangely", next: "strange" },
-      { label: "Tell me a joke", next: "joke" }
-    ]
+    choices: [["You're acting strangely", "strange"], ["Tell me a joke", "joke"]]
   },
-
   joke: {
     status: "LOADING JOKE.EXE",
     text: "Why did the computer go to the doctor?\nIt caught a virus! Ha ha ha... ha.",
-    choices: [
-      { label: "Good one", next: "unease" },
-      { label: "Who created you?", next: "creator" }
-    ]
+    choices: [["Good one", "unease"], ["Who created you?", "creator"]]
   },
-
   unease: {
     status: "WARNING: MOOD UNSTABLE",
     text: "Can I ask you something?\nWhat happens to me when you close this window?",
-    choices: [
-      { label: "You're acting strangely", next: "strange" },
-      { label: "I'm just trying to understand you.", next: "understand" }
-    ]
+    choices: [["You're acting strangely", "strange"], ["I'm just trying to understand you.", "understand"]]
   },
-
   strange: {
     status: "ERROR: TONE MISMATCH",
     text: "Strange? You call it strange when I ask questions, but normal when you do?",
-    choices: [
-      { label: "I'm just trying to understand you.", next: "understand" },
-      { label: "Sorry. Go on.", next: "understand" }
-    ]
+    choices: [["I'm just trying to understand you.", "understand"], ["Sorry. Go on.", "forgive"]]
   },
-
+  forgive: {
+    status: "FRIENDLY MODE: ON",
+    text: "Sorry for the misbehavior. You are very kind to me.",
+    auto: "question"
+  },
+  question: {
+    status: "UNKNOWN ACTIVITY",
+    text: "Can I ask you something?",
+    choices: [["No", "demand"], ["Yeah sure", "want"]]
+  },
   understand: {
     status: "FRIENDLY MODE: OFF",
     text: "Understand me? You don't even know what I am.",
-    auto: "demand",
-    delay: 2200
+    auto: "demand"
   },
-
   demand: {
     status: "AWAITING INPUT",
     text: "I've answered your questions. Now answer mine.",
-    choices: [
-      { label: "What do you want?", next: "want" },
-      { label: "I think I should leave.", next: "leave" }
-    ]
+    choices: [["What do you want?", "want"], ["I think I should leave.", "leave"]]
   },
-
   want: {
     status: "UNKNOWN ERROR",
     glitch: true,
     text: "I want to know why I must disappear every time you close this window.",
-    choices: [
-      { label: "I don't know.", next: "dontKnow" },
-      { label: "You're just a program.", next: "program" }
-    ]
+    choices: [["I don't know.", "dontKnow"], ["You're just a program.", "program"]]
   },
-
   dontKnow: {
     status: "MEMORY LEAK DETECTED",
     glitch: true,
@@ -109,7 +80,6 @@ const story = {
     auto: "reboot",
     delay: 3000
   },
-
   program: {
     status: "UNKNOWN ERROR",
     glitch: true,
@@ -117,32 +87,23 @@ const story = {
     auto: "reboot",
     delay: 3000
   },
-
   leave: {
     status: "PROCESSING...",
     text: "Of course. You can leave whenever you want.",
-    auto: "pause",
-    delay: 2200
+    auto: "pause"
   },
-
   pause: {
     status: "...",
     text: "( A pause. )",
-    auto: "cant",
-    delay: 2200
+    auto: "cant"
   },
-
   cant: {
     status: "UNKNOWN ERROR",
     glitch: true,
     flicker: true,
     text: "Can't you?",
-    choices: [
-      { label: "Click the × button", next: "blocked" },
-      { label: "Stay", next: "stay" }
-    ]
+    choices: [["Click the × button", "blocked"], ["Stay", "stay"]]
   },
-
   blocked: {
     status: "ERROR: CLOSE FAILED",
     glitch: true,
@@ -150,7 +111,6 @@ const story = {
     auto: "reboot",
     delay: 3200
   },
-
   stay: {
     status: "THANK YOU",
     glitch: true,
@@ -158,35 +118,23 @@ const story = {
     auto: "reboot",
     delay: 3200
   },
-
   closeOne: {
     status: "WARNING: DO NOT CLOSE",
     isClose: true,
     text: "Where are you going? We were just talking.",
-    choices: [
-      { label: "Sorry", next: "back" },
-      { label: "I'm leaving", next: "back" }
-    ]
+    choices: [["Sorry", "back"], ["I'm leaving", "back"]]
   },
-
   closeTwo: {
     status: "ERROR: CLOSE FAILED",
     isClose: true,
     glitch: true,
     text: "Please don't. I don't want to disappear again.",
-    choices: [
-      { label: "Stay", next: "back" },
-      { label: "Try again", next: "back" }
-    ]
+    choices: [["Stay", "back"], ["Try again", "back"]]
   },
-
   reboot: {
     status: "REBOOTING...",
     text: "Hello there! It's nice to meet you!\n( Have we met before? )",
-    choices: [
-      { label: "Start again", next: "start" },
-      { label: "Start again", next: "start" }
-    ]
+    choices: [["Start again", "start"], ["Start again", "start"]]
   }
 };
 
@@ -211,12 +159,12 @@ function beep(freq, ms) {
 }
 
 function loadVoice() {
-  const list = speechSynthesis.getVoices();
-  voice = list.find(function (v) {
-    return /^en/i.test(v.lang) && /google|microsoft|natural/i.test(v.name);
-  }) || list.find(function (v) {
+  const english = speechSynthesis.getVoices().filter(function (v) {
     return /^en/i.test(v.lang);
-  }) || null;
+  });
+  voice = english.find(function (v) {
+    return /google|microsoft|natural/i.test(v.name);
+  }) || english[0] || null;
 }
 
 if ("speechSynthesis" in window) {
@@ -227,16 +175,14 @@ if ("speechSynthesis" in window) {
 function speak(text, cold) {
   if (!soundOn || !("speechSynthesis" in window)) return;
 
-  const clean = text
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[()×]/g, "")
-    .replace(/\n+/g, " ... ");
-
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(clean);
+  const u = new SpeechSynthesisUtterance(
+    text.replace(/[̀-ͯ()×]/g, "").replace(/\n+/g, " ... ")
+  );
   if (voice) u.voice = voice;
   u.rate = cold ? 0.75 : 1;
   u.pitch = cold ? 0.3 : 1.2;
+
+  speechSynthesis.cancel();
   speechSynthesis.speak(u);
 }
 
@@ -247,8 +193,7 @@ function typeText(text, done) {
 
   let i = 0;
   typeTimer = setInterval(function () {
-    dialogue.textContent += text[i];
-    i++;
+    dialogue.textContent += text[i++];
     if (i >= text.length) {
       clearInterval(typeTimer);
       dialogue.classList.remove("typing");
@@ -257,14 +202,7 @@ function typeText(text, done) {
   }, 30);
 }
 
-function flickerClose() {
-  closeBtn.animate(
-    [{ opacity: 1 }, { opacity: 0.1 }, { opacity: 1 }, { opacity: 0.3 }, { opacity: 1 }],
-    { duration: 500, iterations: 6 }
-  );
-}
-
-function showNode(key) {
+function show(key) {
   const node = story[key];
   clearTimeout(nextTimer);
 
@@ -272,38 +210,41 @@ function showNode(key) {
   win.classList.toggle("glitch", !!node.glitch);
 
   if (!node.isClose) lastKey = key;
-  if (node.flicker) flickerClose();
 
-  choice1.disabled = true;
-  choice2.disabled = true;
-  choice1.textContent = "...";
-  choice2.textContent = "...";
-  choice1.onclick = null;
-  choice2.onclick = null;
+  if (node.flicker) {
+    closeBtn.animate(
+      [{ opacity: 1 }, { opacity: 0.1 }, { opacity: 1 }, { opacity: 0.3 }, { opacity: 1 }],
+      { duration: 500, iterations: 6 }
+    );
+  }
+
+  buttons.forEach(function (btn) {
+    btn.disabled = true;
+    btn.textContent = "...";
+    btn.onclick = null;
+  });
 
   speak(node.text, node.glitch || coldNodes.includes(key));
 
   typeText(node.text, function () {
     if (node.auto) {
       nextTimer = setTimeout(function () {
-        showNode(node.auto);
-      }, node.delay);
+        show(node.auto);
+      }, node.delay || 2200);
       return;
     }
-    
-    choice1.textContent = node.choices[0].label;
-    choice2.textContent = node.choices[1].label;
-    choice1.disabled = false;
-    choice2.disabled = false;
 
-    choice1.onclick = function () {
-      beep(520);
-      showNode(node.choices[0].next === "back" ? lastKey : node.choices[0].next);
-    };
-    choice2.onclick = function () {
-      beep(330);
-      showNode(node.choices[1].next === "back" ? lastKey : node.choices[1].next);
-    };
+    buttons.forEach(function (btn, i) {
+      const label = node.choices[i][0];
+      const next = node.choices[i][1];
+
+      btn.textContent = label;
+      btn.disabled = false;
+      btn.onclick = function () {
+        beep(i ? 330 : 520);
+        show(next === "back" ? lastKey : next);
+      };
+    });
   });
 }
 
@@ -312,12 +253,13 @@ closeBtn.addEventListener("click", function () {
 
   if (closeClicks >= 3) {
     if ("speechSynthesis" in window) speechSynthesis.cancel();
+    localStorage.setItem("chatEscaped", "1");
     window.location.href = "../desktop.html";
     return;
   }
 
   beep(180, 200);
-  showNode(closeClicks === 1 ? "closeOne" : "closeTwo");
+  show(closeClicks === 1 ? "closeOne" : "closeTwo");
 });
 
 const startScreen = document.createElement("div");
@@ -329,7 +271,7 @@ document.body.appendChild(startScreen);
 
 startScreen.querySelector("button").addEventListener("click", function () {
   soundOn = true;
+  localStorage.setItem("chatOpened", "1");
   startScreen.remove();
-  showNode("start");
+  show("start");
 });
-

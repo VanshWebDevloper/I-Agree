@@ -1,0 +1,108 @@
+body {
+margin: 0;
+background: #008080;
+font-family: Tahoma, Arial, sans-serif;
+color: #111;
+}
+
+.top-bar {
+padding: 10px;
+background: #c0c0c0;
+font-weight: bold;
+}
+
+.top-bar span {
+float: right;
+}
+
+header {
+padding: 20px;
+background: #c0c0c0;
+text-align: center;
+}
+
+header h1 {
+color: navy;
+}
+
+nav {
+padding: 12px;
+background: #c0c0c0;
+}
+
+nav a {
+margin-right: 18px;
+color: navy;
+font-weight: bold;
+text-decoration: none;
+}
+
+main {
+max-width: 750px;
+margin: 20px auto;
+padding: 0 12px;
+}
+
+.box {
+margin-bottom: 20px;
+padding: 18px;
+background: #c0c0c0;
+border: 3px outset white;
+}
+
+.box h2 {
+padding: 10px;
+background: navy;
+color: white;
+font-size: 18px;
+}
+
+label {
+display: block;
+margin: 14px 0 6px;
+}
+
+input, select, textarea {
+box-sizing: border-box;
+width: 100%;
+padding: 10px;
+font: inherit;
+}
+
+textarea {
+min-height: 100px;
+resize: vertical;
+}
+
+button {
+margin-top: 15px;
+padding: 10px 16px;
+background: #c0c0c0;
+border: 3px outset white;
+cursor: pointer;
+}
+
+#preview img {
+width: 100px;
+margin: 8px;
+border: 2px solid white;
+}
+
+.notice {
+padding: 12px;
+background: #fff4cc;
+text-align: center;
+}
+
+footer {
+padding: 18px;
+background: #c0c0c0;
+text-align: center;
+}
+
+@media (max-width: 500px) {
+nav a {
+display: inline-block;
+margin: 5px;
+}
+}

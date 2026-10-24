@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+body {
+  margin: 0;
+  font-family: "IM Fell English", serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  font-family: inherit;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  height: 25px;
+  width: 160px;
+}
+
+body > button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+@keyframes hide {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+#blink {
+  animation: hide 2s ease-in-out 0s infinite;
+}
+
+#story {
+  opacity: 1;
+}
+
+.storyline {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;
+}
+
+#intro {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease-in-out;
+}
