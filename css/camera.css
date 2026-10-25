@@ -4,36 +4,14 @@
 
 body {
   margin: 0;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   background: #c0c0c0;
   font-family: Tahoma, Arial, sans-serif;
 }
 
-.desktop-icon {
-  position: absolute;
-  top: 25px;
-  left: 25px;
-  width: 85px;
-  color: white;
-  text-align: center;
-  font-size: 12px;
-  cursor: pointer;
-  text-shadow: 1px 1px black;
-}
-
-.desktop-icon img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  image-rendering: pixelated;
-  display: block;
-  margin: 0 auto 4px;
-}
-
 .window {
-  position: static;
-  transform: none;
   width: 100%;
   height: 100%;
   display: flex;
@@ -43,24 +21,28 @@ body {
 
 button {
   font-family: inherit;
+  font-size: 12px;
   cursor: pointer;
-  font-weight: bold;
+  color: #111;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: white #555 #555 white;
+  padding: 5px 12px;
 }
 
-.viewer-title button {
-  width: 20px;
-  height: 19px;
-  padding: 0;
+button:active {
+  border-color: #555 white white #555;
 }
 
 .menu {
-  padding: 6px;
+  flex-shrink: 0;
+  padding: 7px 9px;
   font-size: 12px;
   border-bottom: 1px solid #888;
 }
 
 .content {
-  flex: 1 1 auto;
+  flex: 1;
   min-height: 0;
   margin: 7px;
   padding: 12px;
@@ -80,6 +62,7 @@ button {
   text-align: center;
   font-size: 11px;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .photo img {
@@ -90,11 +73,23 @@ button {
   margin-bottom: 6px;
   background: #ddd;
   border: 1px solid #888;
+  pointer-events: none;
 }
 
-.photo:hover {
+.photo span {
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+
+.photo:hover,
+.photo:focus-visible {
   background: #000080;
   color: white;
+  outline: none;
+}
+
+.photo:focus-visible {
+  border: 1px dotted white;
 }
 
 .viewer {
@@ -103,24 +98,90 @@ button {
   inset: 0;
   z-index: 5;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  background: black;
+  background: #111;
   color: white;
 }
 
 .viewer-title {
-  width: 100%;
+  flex-shrink: 0;
+  min-height: 34px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
-  font-size: 13px;
+  gap: 10px;
+  padding: 6px 8px;
+  background: #000080;
+  color: white;
+  font-size: 12px;
 }
 
-.viewer img {
-  max-width: 90%;
-  max-height: 80%;
+.viewer-title span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viewer-title button {
+  flex-shrink: 0;
+  width: 22px;
+  height: 21px;
+  padding: 0;
+  font-size: 17px;
+  line-height: 15px;
+}
+
+.viewer-image-area {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.viewer-image-area img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
+}
+
+.viewer-actions {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px;
+  background: #c0c0c0;
+  border-top: 2px solid white;
+}
+
+#deletePhoto {
+  color: #111;
+}
+
+#deletePhoto:hover {
+  background: #d8d8d8;
+}
+
+@media (max-width: 480px) {
+  .content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 8px;
+    gap: 10px 6px;
+  }
+
+  .photo img {
+    height: 120px;
+  }
+
+  .viewer-image-area {
+    padding: 8px;
+  }
+
+  .viewer-actions {
+    padding: 8px;
+  }
 }

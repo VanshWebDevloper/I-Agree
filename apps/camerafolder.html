@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Camera</title>
-<link rel="stylesheet" href="../css/camera.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camera</title>
+  <link rel="stylesheet" href="../css/camera.css">
 </head>
 <body>
 
-<div class="window" id="folderWindow">
-  <div class="menu">File &nbsp; Edit &nbsp; View &nbsp; Help</div>
-  
-  <div class="content">
-    <div class="photo" data-image="../images/photo1.jpg">
-      <img src="../images/photo1.jpg" alt="Photo 1">
-      <span>IMG_001.jpg</span>
-    </div>
+  <div class="window" id="folderWindow">
+    <div class="menu">File &nbsp; Edit &nbsp; View &nbsp; Help</div>
 
-    <div class="photo" data-image="../images/photo2.jpg">
-      <img src="../images/photo2.jpg" alt="Photo 2">
-      <span>IMG_002.jpg</span>
-    </div>
+    <div class="content" id="photoGrid">
+      <div class="photo" data-image="../images/photo1.jpg">
+        <img src="../images/photo1.jpg" alt="Photo 1">
+        <span>IMG_001.jpg</span>
+      </div>
 
-    <div class="photo" data-image="../images/photo3.jpg">
-      <img src="../images/photo3.jpg" alt="Photo 3">
-      <span>IMG_003.jpg</span>
+      <div class="photo" data-image="../images/photo2.jpg">
+        <img src="../images/photo2.jpg" alt="Photo 2">
+        <span>IMG_002.jpg</span>
+      </div>
+
+      <div class="photo" data-image="../images/file_0013.png">
+        <img src="../images/file_0013.png" alt="Photo 3">
+        <span>IMG_003.jpg</span>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="viewer" id="viewer">
-  <div class="viewer-title">
-    <span id="imageName"></span>
-    <button id="closeViewer">×</button>
+  <div class="viewer" id="viewer">
+    <div class="viewer-title">
+      <span id="imageName">Photo Viewer</span>
+      <button id="closeViewer" type="button" aria-label="Close viewer">×</button>
+    </div>
+
+    <div class="viewer-image-area">
+      <img id="fullImage" src="" alt="Selected photo">
+    </div>
+
+    <div class="viewer-actions">
+      <button id="deletePhoto"   type="button">🗑 Delete Picture</button>
+      <button id="cancelDelete" type="button">Close</button>
+    </div>
   </div>
-  <img id="fullImage" src="" alt="Selected photo">
-</div>
 
-<script src="../js/camera.js"></script>
+  <script src="../js/camera.js"></script>
 </body>
 </html>
