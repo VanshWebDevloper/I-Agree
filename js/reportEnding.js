@@ -7,6 +7,11 @@ if (reportForm) {
 
     localStorage.setItem('reported', '1');
     setTimeout(() => {
+      if (window.top !== window) {
+        window.top.location.href = endingPage;
+        return;
+      }
+
       window.location.href = endingPage;
     }, 1500);
   });

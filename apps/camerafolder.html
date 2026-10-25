@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camera</title>
+<link rel="stylesheet" href="../css/camera.css">
+</head>
+<body>
+
+<div class="window" id="folderWindow">
+  <div class="menu">File &nbsp; Edit &nbsp; View &nbsp; Help</div>
+  
+  <div class="content">
+    <div class="photo" data-image="../images/photo1.jpg">
+      <img src="../images/photo1.jpg" alt="Photo 1">
+      <span>IMG_001.jpg</span>
+    </div>
+
+    <div class="photo" data-image="../images/photo2.jpg">
+      <img src="../images/photo2.jpg" alt="Photo 2">
+      <span>IMG_002.jpg</span>
+    </div>
+
+    <div class="photo" data-image="../images/photo3.jpg">
+      <img src="../images/photo3.jpg" alt="Photo 3">
+      <span>IMG_003.jpg</span>
+    </div>
+  </div>
+</div>
+
+<div class="viewer" id="viewer">
+  <div class="viewer-title">
+    <span id="imageName"></span>
+    <button id="closeViewer">×</button>
+  </div>
+  <img id="fullImage" src="" alt="Selected photo">
+</div>
+
+<script src="../js/camera.js"></script>
+</body>
+</html>

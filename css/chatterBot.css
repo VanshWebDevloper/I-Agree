@@ -4,20 +4,19 @@ body {
   margin: 0;
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: #008080;
+  background: #c0c0c0;
   font-family: "Courier New", Courier, monospace;
   color: #000;
 }
 
 .window {
-  width: min(94vw, 480px);
+  width: 100%;
+  max-width: 560px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: #c0c0c0;
-  border: 2px solid;
-  border-color: #fff #404040 #404040 #fff;
-  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.45);
-  padding: 3px;
 }
 
 .title-bar {
@@ -71,6 +70,7 @@ body {
   overflow: hidden;
   margin: 10px;
   padding: 12px;
+  flex: 1;
   min-height: 130px;
   background: #001a00;
   color: #33ff33;

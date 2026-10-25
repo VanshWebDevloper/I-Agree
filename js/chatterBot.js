@@ -248,19 +248,63 @@ function show(key) {
   });
 }
 
-closeBtn.addEventListener("click", function () {
+function handleClose() {
   closeClicks++;
 
-  if (closeClicks >= 3) {
-    if ("speechSynthesis" in window) speechSynthesis.cancel();
-    localStorage.setItem("chatEscaped", "1");
-    window.location.href = "../desktop.html";
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
+  beep(180, 200);
+  show(closeClicks === 1 ? "closeOne" : "closeTwo");
+}
+
+if (closeBtn) closeBtn.addEventListener("click", handleClose);
+
+function guardShellClose() {
+  let parentDoc;
+
+  try {
+    if (window.parent === window) return;
+    parentDoc = window.parent.document;
+  } catch (error) {
     return;
   }
 
-  beep(180, 200);
-  show(closeClicks === 1 ? "closeOne" : "closeTwo");
-});
+  function myWindow() {
+    const frames = Array.prototype.slice.call(parentDoc.querySelectorAll(".app-window iframe"));
+
+    for (let i = 0; i < frames.length; i++) {
+      if (frames[i].contentWindow === window) return frames[i].closest(".app-window");
+    }
+
+    return null;
+  }
+
+  function release() {
+    parentDoc.removeEventListener("click", guard, true);
+  }
+
+  function guard(event) {
+    const button = event.target.closest ? event.target.closest("[data-action='close']") : null;
+    if (!button) return;
+
+    const box = myWindow();
+    if (!box || !box.contains(button)) return;
+
+    if (closeClicks >= 2) {
+      localStorage.setItem("chatEscaped", "1");
+      release();
+      return;
+    }
+
+    event.stopPropagation();
+    event.preventDefault();
+    handleClose();
+  }
+
+  parentDoc.addEventListener("click", guard, true);
+  window.addEventListener("pagehide", release);
+}
+
+guardShellClose();
 
 const startScreen = document.createElement("div");
 startScreen.style.cssText =
